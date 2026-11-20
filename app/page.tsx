@@ -1,6 +1,12 @@
 import AppShell from "@/components/AppShell";
+import AuthProvider from "@/components/AuthProvider";
 
-// Single page app: the shell holds the header and the Map / Sheet tab switch.
+// Single page app. AuthProvider holds the Supabase sign-in state; the shell shows the sign-in
+// card until the user is signed in, then the header tabs and the map.
 export default function Home() {
-  return <AppShell />;
+  return (
+    <AuthProvider>
+      <AppShell />
+    </AuthProvider>
+  );
 }
