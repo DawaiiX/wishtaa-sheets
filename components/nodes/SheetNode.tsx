@@ -16,8 +16,17 @@ export default function SheetNode({ data, selected }: NodeProps<SheetFlowNode>) 
       <div className="truncate text-sm font-semibold text-slate-900" title={data.name}>
         {data.name}
       </div>
-      <div className="mt-2">
+      <div className="mt-2 flex flex-wrap items-center gap-1">
         <StatusChip status={data.status} />
+        {/* Manual tag; the site cannot detect scripts. */}
+        {data.hasAppsScript && (
+          <span
+            title="This sheet has its own Apps Script"
+            className="inline-flex items-center rounded-full border border-amber-300 bg-amber-50 px-2 py-0.5 text-xs font-medium text-amber-700"
+          >
+            Apps Script
+          </span>
+        )}
       </div>
       <div className="mt-2 text-xs text-slate-500">Last run: {formatLastRun(data.lastRun)}</div>
       <Handle type="source" position={Position.Right} />

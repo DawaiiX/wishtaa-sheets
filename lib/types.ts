@@ -25,6 +25,12 @@ export type SheetNodeData = {
   status: SheetStatus;
   /** ISO timestamp (UTC) of the last run, or null if it has never run. */
   lastRun: string | null;
+  /** Manual tag: this sheet has its own Apps Script (the site cannot detect or run scripts). */
+  hasAppsScript: boolean;
+  /** Notes for whoever maintains this sheet (edited in the side panel, P1-3). */
+  instructions: string;
+  /** Script text kept for reference only; pasted by hand into the sheet's own Apps Script. */
+  script: string;
 };
 
 /** Data carried by a topic (group) node. */
