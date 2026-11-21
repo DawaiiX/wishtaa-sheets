@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useAuth } from "./AuthProvider";
+import DriveChip from "./DriveChip";
 import MapView from "./MapView";
 import SheetView from "./SheetView";
 import SignInCard from "./SignInCard";
@@ -49,7 +50,10 @@ export default function AppShell() {
           <div />
         )}
 
-        <UserMenu />
+        <div className="flex min-w-0 items-center justify-end gap-3">
+          {signedIn && <DriveChip />}
+          <UserMenu />
+        </div>
       </header>
 
       {signedIn && notice && (
